@@ -7,6 +7,56 @@
   </head>
   <body>
     <h1>Open the console</h1>
-    <script></script>
+    <script>
+       // Challenge 1
+       const thisPromise = fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`);
+       console.log(thisPromise);
+
+       fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`).then(response=> {
+       console.log(response);
+      }); 
+
+       // Challenge 2
+       fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
+      .then(response => response.json()
+      .then(data => console.log(data)));
+
+        // Challenge 3
+        fetch(`https://bokeapi.co/api/v2/pokemon/pikachu`)
+      .then(response => console.log(response))
+      .catch(error => console.log(error));
+
+      // Challenge 4
+      fetch()
+      .catch(error => console.log(error));
+
+      // Task 1
+      const getUser = userName =>
+      fetch(`https://api.github.com/users/${userName}`) //?access_token=${token}`=== didn't find token to access it 
+      console.log(getUser);
+
+      getUser('klisabeth')
+      .then(console.log) 
+      .catch(console.error);
+
+       // Task 2
+      const getRepos = user =>
+      fetch(user.repos_url).then(response => response.json());
+
+      getUser('klisabeth')
+      fetch(getRepos)
+      .then(console.log)
+      .catch(console.error);
+
+      // Task 3
+      const promise1 = getUser('klisabeth');
+      const promise2 = getUser('oliverjam');
+
+      Promise.all([promise1, promise2])
+      .then(console.log)
+      .catch(console.error);
+
+
+    </script>
   </body>
 </html>
